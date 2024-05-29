@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anime List with Kitsu API</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <div class="menu-icon" id="menu-icon">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+        <nav class="sidebar" id="sidebar"><br>
+            <ul>
+                <li><a href="#most-popular-animes">Populares</a></li>
+                <li><a href="#most-viewed-animes">Mas vistos</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <div class="container">
+        <section id="most-popular-animes" class="anime-section">
+        <h2>Most Popular Animes</h2><br>
+        <div id="popularAnime" class="anime-grid"></div><br>
+        </section>
+
+        <section id="most-viewed-animes" class="anime-section">
+        <h2>Most Viewed Animes</h2><br>
+        <div id="trendingAnime" class="anime-grid"></div><br>
+        </section>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; Codo a Codo 2024 Anime Listings. All rights reserved.</p>
+            <p>Follow us on:
+                <a href="#">Twitter</a> |
+                <a href="#">Facebook</a> |
+                <a href="#">Instagram</a>
+            </p>
+        </div>
+    </footer>
+    <button onclick="scrollToTop()" id="btnScrollToTop"><i class="fas fa-arrow-up"></i></button>
+
+</body>
+<script src="main.js"></script>
+
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Login & Registro</title>
+</head>
+
+<body>
+    <section id="home">
+        <div class="content">
+            <div class="slides-wrapper">
+                <div class="slideshows">
+                    <div class="slideshow slideshow--hero">
+                        <div class="slides">
+                            <div class="slide slide1" style="background-image: url('./img/demon.png')"></div>
+                            <div class="slide slide2" style="background-image: url('./img/Gua-anime-temporada-invierno-2024-portada.jpg')"></div>
+                            <div class="slide slide3" style="background-image: url('./img/estrenos.png')"></div>
+                        </div>
+                    </div>
+                    <div class="slideshow slideshow--contrast slideshow--contrast--before">
+                        <div class="slides">
+                            <div class="slide slide1" style="background-image: url('./img/demon.png')"></div>
+                            <div class="slide slide2" style="background-image: url('./img/Gua-anime-temporada-invierno-2024-portada.jpg')"></div>
+                            <div class="slide slide3" style="background-image: url('./img/estrenos.png')"></div>
+                        </div>
+                    </div>
+                    <div class="slideshow slideshow--contrast slideshow--contrast--after">
+                        <div class="slides">
+                            <div class="slide slide1" style="background-image: url('./img/demon.png')"></div>
+                            <div class="slide slide2" style="background-image: url('./img/Gua-anime-temporada-invierno-2024-portada.jpg')"></div>
+                            <div class="slide slide3" style="background-image: url('./img/estrenos.png')"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Contenedor del mensaje de bienvenida -->
+        <div class="welcome-message">
+            <h1>Bienvenido a nuestra página</h1>
+            <p>Por favor, inicia sesión para continuar</p>
+        </div>
+    </section>
+    <div class="login-container">
+        <div class="tabs">
+            <button class="tab-link" onclick="openTab('LoginTab')">Login</button>
+            <button class="tab-link" onclick="openTab('RegisterTab')">Registro</button>
+        </div>
+        <div id="LoginTab" class="tab-content">
+            <h2>Login</h2>
+            <form id="loginForm">
+                <input type="text" id="loginUsername" placeholder="Username" required>
+                <input type="password" id="loginPassword" placeholder="Password" autocomplete="current-password" required>
+                <p>¿No estas registrado? Registrate gratis</p>
+                <input type="submit" value="Login">                
+            </form>
+        </div>
+        <div id="RegisterTab" class="tab-content">
+            <h2>Registro</h2>
+            <form id="registerForm">
+                <input type="text" id="registerUsername" placeholder="Username" required>
+                <input type="email" id="registerEmail" placeholder="Email" required>
+                <input type="password" id="registerPassword" placeholder="Password" autocomplete="current-password" required>
+                <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
+                <input type="text" id="fullName" placeholder="Full Name" required>
+                <input type="date" id="birthDate" required>
+                <input type="submit" value="Register">
+            </form>
+        </div>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>
