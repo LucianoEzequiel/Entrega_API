@@ -7,6 +7,10 @@ document.addEventListener("DOMContentLoaded", function () {
   const loginPasswordInput = document.getElementById("loginPassword");
   const registerUsernameInput = document.getElementById("registerUsername");
   const registerPasswordInput = document.getElementById("registerPassword");
+  const registerEmailInput = document.getElementById("registerEmail");
+  const confirmPasswordInput = document.getElementById("confirmPassword");
+  const fullNameInput = document.getElementById("fullName");
+  const birthDateInput = document.getElementById("birthDate");
   const tabLinks = document.querySelectorAll(".tab-link");
   const tabContents = document.querySelectorAll(".tab-content");
 
@@ -38,17 +42,35 @@ document.addEventListener("DOMContentLoaded", function () {
     const storedUsername = localStorage.getItem('username');
     const storedPassword = localStorage.getItem('password');
 
-    if (username === storedUsername && password === storedPassword) {
-      // Inicio de sesión exitoso
-      alert("Inicio de sesión exitoso.");
-      // Limpiar campos de usuario y contraseña
-      loginUsernameInput.value = '';
-      loginPasswordInput.value = '';
-      // Redirigir a la página de inicio de sesión exitoso
-      window.location.href = "kitsu.html";
+    let valid = true;
+
+    if (username === "") {
+      showError(loginUsernameInput, "Username is required");
+      valid = false;
     } else {
-      // Mostrar mensaje de error
-      alert("Usuario o contraseña incorrectos.");
+      clearError(loginUsernameInput);
+    }
+
+    if (password === "") {
+      showError(loginPasswordInput, "Password is required");
+      valid = false;
+    } else {
+      clearError(loginPasswordInput);
+    }
+
+    if (valid) {
+      if (username === storedUsername && password === storedPassword) {
+        // Inicio de sesión exitoso
+        alert("Inicio de sesión exitoso.");
+        // Limpiar campos de usuario y contraseña
+        loginUsernameInput.value = '';
+        loginPasswordInput.value = '';
+        // Redirigir a la página de inicio de sesión exitoso
+        window.location.href = "kitsu.html";
+      } else {
+        // Mostrar mensaje de error
+        alert("Usuario o contraseña incorrectos.");
+      }
     }
   });
 
@@ -56,7 +78,11 @@ document.addEventListener("DOMContentLoaded", function () {
     event.preventDefault();
 
     const username = registerUsernameInput.value.trim();
+    const email = registerEmailInput.value.trim();
     const password = registerPasswordInput.value.trim();
+    const confirmPassword = confirmPasswordInput.value.trim();
+    const fullName = fullNameInput.value.trim();
+    const birthDate = birthDateInput.value.trim();
 
     let valid = true;
 
@@ -67,6 +93,16 @@ document.addEventListener("DOMContentLoaded", function () {
       clearError(registerUsernameInput);
     }
 
+    if (email === "") {
+      showError(registerEmailInput, "Email is required");
+      valid = false;
+    } else if (!isValidEmail(email)) {
+      showError(registerEmailInput, "Invalid email format");
+      valid = false;
+    } else {
+      clearError(registerEmailInput);
+    }
+
     if (password === "") {
       showError(registerPasswordInput, "Password is required");
       valid = false;
@@ -74,8 +110,34 @@ document.addEventListener("DOMContentLoaded", function () {
       clearError(registerPasswordInput);
     }
 
+    if (confirmPassword === "") {
+      showError(confirmPasswordInput, "Please confirm password");
+      valid = false;
+    } else if (confirmPassword !== password) {
+      showError(confirmPasswordInput, "Passwords do not match");
+      valid = false;
+    } else {
+      clearError(confirmPasswordInput);
+    }
+
+    if (fullName === "") {
+      showError(fullNameInput, "Full name is required");
+      valid = false;
+    } else {
+      clearError(fullNameInput);
+    }
+
+    if (birthDate === "") {
+      showError(birthDateInput, "Birth date is required");
+      valid = false;
+    } else {
+      clearError(birthDateInput);
+    }
+
     if (valid) {
-      // Simula el registro del usuario y redirige al formulario de login
+      // Guardar los datos en el almacenamiento local
+      localStorage.setItem('username', username);
+      localStorage.setItem('password', password);
       alert("Usuario registrado con éxito. Ahora puedes iniciar sesión.");
       switchToLogin();
     }
@@ -99,7 +161,14 @@ document.addEventListener("DOMContentLoaded", function () {
       input.parentElement.removeChild(error);
     }
   }
+
+  function isValidEmail(email) {
+    // Expresión regular para validar el formato de correo electrónico
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  }
 });
+
 
 //logica para consumir api de web http:kitsu.com
 // Funcionalidad del menú
