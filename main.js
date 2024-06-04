@@ -14,11 +14,11 @@ document.addEventListener("DOMContentLoaded", function () {
   const tabLinks = document.querySelectorAll(".tab-link");
   const tabContents = document.querySelectorAll(".tab-content");
 
-  // Show the login tab by default
+  // Mostrar la pestaña de inicio de sesión por defecto
   document.getElementById("LoginTab").classList.add("active");
   tabLinks[0].classList.add("active");
 
-  // Add global reference to openTab function
+  // Agregar referencia global a la función openTab
   window.openTab = function (tabName) {
     tabContents.forEach((content) => {
       content.classList.remove("active");
@@ -162,8 +162,9 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
+  // Expresión regular para validar el formato de correo electrónico
   function isValidEmail(email) {
-    // Expresión regular para validar el formato de correo electrónico
+  
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
   }
@@ -226,7 +227,7 @@ document.getElementById("menu-icon").addEventListener("click", () => {
   
   function displayAnimeList(animeList, elementId) {
     const animeInfoDiv = document.getElementById(elementId);
-    animeInfoDiv.innerHTML = ""; // Clear previous results
+    animeInfoDiv.innerHTML = ""; // Limpiar resultados previos
     animeList.forEach((anime) => {
         if (anime.attributes.titles && anime.attributes.titles.en) {
             const title = anime.attributes.titles.en;

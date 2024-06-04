@@ -137,29 +137,29 @@ header {
 .anime-item h3, .anime-item p {
     padding: 10px;
     margin: 0;
-    color: #fff; /* Text color set to white */
+    color: #fff; /* Color del texto establecido en blanco */
 }
 
 .anime-item h3 {
-    background: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+    background: rgba(0, 0, 0, 0.7); /* Fondo semitransparente */
     position: absolute;
-    bottom: 40px; /* Adjust this value as needed */
+    bottom: 40px; /* Ajuste este valor según sea necesarioneeded */
     width: 100%;
     text-align: center;
 }
 
 .anime-item p {
-    background: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+    background: rgba(0, 0, 0, 0.7); /* Fondo semitransparente */
     position: absolute;
     bottom: 0;
     width: 100%;
-    height: 60px; /* Adjust this value as needed */
+    height: 60px; /* Ajuste este valor según sea necesario */
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
-    padding: 10px; /* Ensure this padding is consistent with h3 padding */
+    padding: 10px; /* Asegúrese de que este relleno sea consistente con el relleno h3 */
     box-sizing: border-box;
     text-align: center;
 }
